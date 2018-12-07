@@ -1,22 +1,15 @@
-package CafeManagementProgram.member;
+package CafeManagementProgram.customer.ConnectionPool;
 
-class empDTO {
+class ConnectionPoolDTO { // 자바빈 - Data 처리
 	private int no;
-	private int salary;
 	private String name;
+	private String email;
 	private String tel;
-	private int work;
 	
 	public int getNo() {
 		return no;
 	}
 	public void setNo(int no) {
-		this.no = no;
-	}
-	public int getSalary() {
-		return no;
-	}
-	public void setSalary(int salary) {
 		this.no = no;
 	}
 	public String getName() {
@@ -25,11 +18,11 @@ class empDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getWork() {
-		return work;
+	public String getEmail() {
+		return email;
 	}
-	public void setWork(int Work) {
-		this.work = work;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getTel() {
 		return tel;

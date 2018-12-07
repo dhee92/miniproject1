@@ -1,4 +1,4 @@
-package CafeManagementProgram;
+package CafeMP;
 
 public class main {
 

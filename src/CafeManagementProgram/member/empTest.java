@@ -31,6 +31,7 @@ public class empTest{
 		String name = input.nextLine();
 		System.out.print("수정할 근무시간을 입력하세요:");
 		String work = input.nextLine();
+		int chgWork = Integer.parseInt(no);
 		System.out.print("수정할 전화번호를 입력하세요:");
 		String tel = input.nextLine();
 		
@@ -56,14 +57,14 @@ public class empTest{
 		System.out.print("이름 입력 : ");
 		String name = input.nextLine();
 		System.out.print("근무시간 입력 : ");
-		String work = input.nextLine();
+		int chageWork = input.nextLine();
 		System.out.print("전화 번호 입력 : ");
 		String tel = input.nextLine();
 		
 		dto.setNo(chageNo);
 		dto.setSalary(chageSalary);
 		dto.setName(name);
-		dto.setWork(work);
+		dto.setWork(chageWork);
 		dto.setTel(tel);
 		
 		dao.insert(dto);
@@ -81,10 +82,10 @@ public class empTest{
 				int salary = dto.getSalary();
 				String name = dto.getName();
 				String tel = dto.getTel();
-				String work = dto.getWork();
+				int work = dto.getWork();
 				
 				
-				System.out.printf("%d \t %d \t %s \t %s \t %s\n", 
+				System.out.printf("%d \t %d \t %s \t %s \t %d\n", 
 												no, salary , name, tel, work );
 			}
 		}
