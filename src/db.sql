@@ -8,8 +8,8 @@ select * from stock;
 insert into stock 
 values(6000, 10000, 2000, 2000); 
 
-drop table customer;
-create table customer(
+drop table employee;
+create table employee(
 	no				number(4),
 	Msalary		number(5),
 	name			varchar2(20),
