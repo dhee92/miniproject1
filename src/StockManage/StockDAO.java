@@ -1,0 +1,5 @@
+package StockManage;
+
+class StockDAO {
+
+}
