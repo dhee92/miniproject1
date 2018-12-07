@@ -38,9 +38,9 @@ class empDAO {
 			while(rs.next()) {
 				empDTO dto = new empDTO();
 				dto.setNo(rs.getInt("no"));
-				dto.setSalary(rs.getInt("salary"));
+				dto.setMsalary(rs.getInt("msalary"));
 				dto.setName(rs.getString("name"));
-				dto.setWork(rs.getInt("work hour"));
+				dto.setWorkhour(rs.getInt("work hour"));
 				dto.setTel(rs.getString("tel"));
 				list.add(dto);
 			}
@@ -67,9 +67,9 @@ class empDAO {
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, dto.getNo());
-			pstmt.setInt(2, dto.getSalary());
+			pstmt.setInt(2, dto.getMsalary());
 			pstmt.setString(3, dto.getName());
-			pstmt.setInt(4, dto.getWork());
+			pstmt.setInt(4, dto.getWorkhour());
 			pstmt.setString(5, dto.getTel());
 			
 			int result = pstmt.executeUpdate();
@@ -95,7 +95,7 @@ class empDAO {
 public void update(empDTO dto) {
 	Connection con = null;
 	PreparedStatement pstmt = null;
-	String sql = "update customer set name=?,  tel=? , where no=?, where salary=?, where work = ? ";
+	String sql = "update customer set name=?,  tel=? , where no=?, where msalary=?, where workhour = ? ";
 	
 	try {
 		con = ds.getConnection();
@@ -103,9 +103,9 @@ public void update(empDTO dto) {
 		
 		
 		pstmt.setInt(1, dto.getNo());
-		pstmt.setInt(2, dto.getSalary());
+		pstmt.setInt(2, dto.getMsalary());
 		pstmt.setString(3, dto.getName());
-		pstmt.setInt(4, dto.getWork());
+		pstmt.setInt(4, dto.getWorkhour());
 		pstmt.setString(5, dto.getTel());
 		/*pstmt.setInt(4, dto.getNo());
 		pstmt.setInt(5, dto.getSalary());*/

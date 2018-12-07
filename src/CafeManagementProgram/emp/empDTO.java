@@ -2,10 +2,10 @@ package CafeManagementProgram.member;
 
 class empDTO {
 	private int no;
-	private int salary;
+	private int msalary;
 	private String name;
 	private String tel;
-	private int work;
+	private int workhour;
 	
 	public int getNo() {
 		return no;
@@ -13,10 +13,10 @@ class empDTO {
 	public void setNo(int no) {
 		this.no = no;
 	}
-	public int getSalary() {
+	public int getMsalary() {
 		return no;
 	}
-	public void setSalary(int salary) {
+	public void setMsalary(int msalary) {
 		this.no = no;
 	}
 	public String getName() {
@@ -25,11 +25,11 @@ class empDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getWork() {
-		return work;
+	public String getWorkhour() {
+		return workhour;
 	}
-	public void setWork(int Work) {
-		this.work = work;
+	public void setWorkhour(int Workhour) {
+		this.workhour = workhour;
 	}
 	public String getTel() {
 		return tel;

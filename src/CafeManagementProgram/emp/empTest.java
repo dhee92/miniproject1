@@ -25,20 +25,20 @@ public class empTest{
 		String no = input.nextLine();
 		int chgNo = Integer.parseInt(no);
 		System.out.print("수정할 시급을 입력하세요:");
-		String salary = input.nextLine();
-		int chgSalary = Integer.parseInt(no);
+		String msalary = input.nextLine();
+		int chgMsalary = Integer.parseInt(no);
 		System.out.print("수정할 이름을 입력하세요:");
 		String name = input.nextLine();
 		System.out.print("수정할 근무시간을 입력하세요:");
-		String work = input.nextLine();
-		int chgWork = Integer.parseInt(no);
+		String workhour = input.nextLine();
+		int chgWorkhour = Integer.parseInt(no);
 		System.out.print("수정할 전화번호를 입력하세요:");
 		String tel = input.nextLine();
 		
 		dto.setNo(chgNo);
-		dto.setSalary(chgSalary);
+		dto.setMsalary(chgMsalary);
 		dto.setName(name);
-		dto.setWork(work);
+		dto.setWorkhour(workhour);
 		dto.setTel(tel);
 		
 		dao.update(dto);
@@ -52,19 +52,19 @@ public class empTest{
 		String no = input.nextLine();
 		int chageNo = Integer.parseInt(no);
 		System.out.print("시급 입력 : ");
-		String salary = input.nextLine();
-		int chageSalary = Integer.parseInt(no);
+		String msalary = input.nextLine();
+		int chageMsalary = Integer.parseInt(no);
 		System.out.print("이름 입력 : ");
 		String name = input.nextLine();
 		System.out.print("근무시간 입력 : ");
-		int chageWork = input.nextLine();
+		int chageWorkhour = input.nextLine();
 		System.out.print("전화 번호 입력 : ");
 		String tel = input.nextLine();
 		
 		dto.setNo(chageNo);
-		dto.setSalary(chageSalary);
+		dto.setMsalary(chageMsalary);
 		dto.setName(name);
-		dto.setWork(chageWork);
+		dto.setWorkhour(chageWorkhour);
 		dto.setTel(tel);
 		
 		dao.insert(dto);
@@ -79,14 +79,14 @@ public class empTest{
 
 			for(empDTO dto: list) {
 				int no = dto.getNo();
-				int salary = dto.getSalary();
+				int msalary = dto.getMsalary();
 				String name = dto.getName();
 				String tel = dto.getTel();
-				int work = dto.getWork();
+				int workhour = dto.getWorkhour();
 				
 				
 				System.out.printf("%d \t %d \t %s \t %s \t %d\n", 
-												no, salary , name, tel, work );
+												no, msalary , name, tel, workhour );
 			}
 		}
 
