@@ -1,39 +1,49 @@
 package StockManage;
 
+import java.util.List;
 import java.util.Scanner;
-
 
 
 public class StockTest {
 	
 	
-	public static void insert(StockDAO dao) {
+	public static void update(StockDAO dao) {
 		Scanner input = new Scanner(System.in);
 		StockDTO dto = new StockDTO();
 				
-		System.out.println("테이블에 입력할 값 입력 받기");
+		System.out.println("추가할 재고를 입력해주세요(원두는 g단위, 시럽, 우유는 ml단위)");
 		System.out.print("원두 : ");
-		String no = input.nextLine();
-		int changeNo = Integer.parseInt(no);
-		System.out.print("이름 입력 : ");
-		String name = input.nextLine();
-		System.out.print("이메일 입력 : ");
-		String email = input.nextLine();
-		System.out.print("전화번호 입력 : ");
-		String  tel = input.nextLine();
+		int Bean = input.nextInt();
+		System.out.print("우유 : ");
+		int Milk = input.nextInt();
+		System.out.print("초코 시럽 : ");
+		int Choco = input.nextInt();
+		System.out.print("바닐라 시럽 : ");
+		int Vanilla = input.nextInt();
 		
-	/*	dto.setNo(changeNo);
-		dto.setName(name);
-		dto.setEmail(email);
-		dto.setTel(tel);
+		dto.setBeanQ(Bean);
+		dto.setMilkQ(Milk);
+		dto.setChocoQ(Choco);
+		dto.setVanillaQ(Vanilla);
 		
-		dao.insert(dto);*/
-		
-		
-		
-		
-		
+		dao.update(dto);
+			
 	}		
+	public static void select(StockDAO dao) {
+		StockDTO dto =null;
+		dto=dao.select();
+		
+		System.out.println("원두 \t\t우유 \t\t 초코 시럽 \t 바닐라 시럽");
+		
+		int bean = dto.getBeanQ();
+		int milk = dto.getMilkQ();
+		int choco = dto.getChocoQ();
+		int vanilla = dto.getVanillaQ();
+		
+		System.out.printf("%d \t %d \t %d \t\t%d",bean, milk, choco, vanilla);
+	
+	}
+	
 
 	public static void main(String[] args) {
 		
@@ -44,8 +54,8 @@ public class StockTest {
 		while(true) {
 			System.out.println("\n\n****** 메뉴 구성 ******");
 			System.out.println("1. 프로그램 종료. ");
-			System.out.println("2. 재고 변화");
-			System.out.println("3. 재고 확인 ");
+			System.out.println("2. 추가 재고 입력");
+			System.out.println("3. 재고 확인");
 			System.out.println(">>메뉴 선택 : ");
 			
 			int choice = input.nextInt();
@@ -56,10 +66,10 @@ public class StockTest {
 					System.out.println("이제 프로그램을 종료합니다.");
 					return;
 				case 2:
-					insert(dao);
+					update(dao);
 					break;
 				case 3:
-					/*select(dao);*/
+					select(dao);
 					break;
 				default:
 					break;			

@@ -5,6 +5,8 @@ class StockDTO {
 	private int milkQ;
 	private int chocoQ;
 	private int vanillaQ;
+	
+	
 	public int getBeanQ() {
 		return beanQ;
 	}
