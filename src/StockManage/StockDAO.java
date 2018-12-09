@@ -55,11 +55,11 @@ class StockDAO {
 			
 	}
 	
-	public  void update(StockDTO dto) {
+	public void update(StockDTO dto) {
 		Connection con = null;
 		PreparedStatement pstmt=null;
 		
-		String sql = "update stock set Bean = ?, Milk=?, Choco=?, Vanilla=?";
+		String sql = "update stock set Bean = Bean + ?, Milk=Milk + ?, Choco=Choco + ?, Vanilla= Vanilla + ?";
 		
 		try {
 			con = ds.getConnection();
@@ -76,7 +76,7 @@ class StockDAO {
 				System.out.println("재고 수정 성공");
 			}
 			else {
-				System.out.println("데이터 수정 실패");
+				System.out.println("재고 수정 실패");
 			}		
 			
 		} catch (SQLException e) {

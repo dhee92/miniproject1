@@ -1,13 +1,17 @@
 package StockManage;
 
-import java.util.List;
 import java.util.Scanner;
 
 
 public class StockTest {
+	StockDAO dao;
+	
+	public StockTest(){
+		dao = new StockDAO();
+	}
 	
 	
-	public static void update(StockDAO dao) {
+	public void update() {
 		Scanner input = new Scanner(System.in);
 		StockDTO dto = new StockDTO();
 				
@@ -29,7 +33,7 @@ public class StockTest {
 		dao.update(dto);
 			
 	}		
-	public static void select(StockDAO dao) {
+	public void select() {
 		StockDTO dto =null;
 		dto=dao.select();
 		
@@ -42,7 +46,7 @@ public class StockTest {
 		
 		System.out.printf("%d \t %d \t %d \t\t%d",bean, milk, choco, vanilla);
 	
-	}
+	}/*
 	
 
 	public static void main(String[] args) {
@@ -83,6 +87,6 @@ public class StockTest {
 		
 		
 
-	}
+	}*/
 
 }
