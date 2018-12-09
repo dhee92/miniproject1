@@ -1,4 +1,4 @@
-package CafeManagementProgram.member;
+package EmpMange;
 
 import java.util.List;
 import java.util.Scanner;
@@ -38,7 +38,7 @@ public class empTest{
 		dto.setNo(chgNo);
 		dto.setMsalary(chgMsalary);
 		dto.setName(name);
-		dto.setWorkhour(workhour);
+		dto.setWorkhour(chgWorkhour);
 		dto.setTel(tel);
 		
 		dao.update(dto);
@@ -57,7 +57,9 @@ public class empTest{
 		System.out.print("이름 입력 : ");
 		String name = input.nextLine();
 		System.out.print("근무시간 입력 : ");
-		int chageWorkhour = input.nextLine();
+		String workhour = input.nextLine();
+		int chageWorkhour = Integer.parseInt(workhour);
+		
 		System.out.print("전화 번호 입력 : ");
 		String tel = input.nextLine();
 		

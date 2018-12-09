@@ -1,4 +1,4 @@
-package CafeManagementProgram.member;
+package EmpMange;
 
 class empDTO {
 	private int no;
@@ -25,7 +25,7 @@ class empDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getWorkhour() {
+	public int getWorkhour() {
 		return workhour;
 	}
 	public void setWorkhour(int Workhour) {
