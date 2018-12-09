@@ -67,6 +67,7 @@ public class CustomerDAO {
 		Connection con = null;
 		String sql = "insert into customer values(?,?,?,?)";
 		PreparedStatement pstmt = null;
+		
 			try {
 				con = ds.getConnection();
 				pstmt = con.prepareStatement(sql);
@@ -76,7 +77,7 @@ public class CustomerDAO {
 				pstmt.setInt(4, dto.getStamp());
 				int result = pstmt.executeUpdate();
 				
-				if(result != 1) {
+				if(result == 1) {
 					System.out.println("데이터 저장 성공");
 				}else {
 					System.out.println("데이터 저장 실패");
@@ -86,25 +87,24 @@ public class CustomerDAO {
 				e.printStackTrace();
 			} finally {
 				try {
-					if(pstmt != null){pstmt.close();}
-					if(con != null){con.close();}
 					
-				} catch (SQLException e) {
-					
-					e.printStackTrace();
+					if(pstmt!=null) {pstmt.close();}
+					if(con!=null) {con.close();}
+					}catch (SQLException e) {
+						e.printStackTrace();
+					}
 				}
-			
-			}
 		}
 
 
 	public void update(CustomerDTO dto) {
 		Connection con = null; 
-		String sql = "update customer set name = ?, tel =?, stamp = ? where no = ?";
 		PreparedStatement pstmt = null;
+		String sql = "update customer set name = ?, tel =?, stamp = ? where no = ?";
+		
 		try {
 			con = ds.getConnection();
-			con.prepareStatement(sql);
+			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, dto.getName());
 			pstmt.setString(2, dto.getTel());
 			pstmt.setInt(3, dto.getStamp());
@@ -123,25 +123,25 @@ public class CustomerDAO {
 			e.printStackTrace();
 		}finally {
 			try {
-				if(pstmt != null) {pstmt.close();}
-				if(con != null) {con.close();}
+				if(pstmt != null) { pstmt.close(); }
+				if(con != null)  { con.close(); }
 			} catch (SQLException e) {
-				
 				e.printStackTrace();
 			}
-			}
+		}
 		}
 
-	public void delete(CustomerDTO dto) {
+	public void delete(int no) {
 
 		Connection  con = null; 
-		String sql = "delete from customer where no = ? ";
 		PreparedStatement pstmt = null;
+		String sql = "delete from customer where no = ? ";
+		
 		
 		try {
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, dto.getNo());
+			pstmt.setInt(1, no);
 			int result = pstmt.executeUpdate();
 			
 			if(result == 1) {
@@ -154,27 +154,19 @@ public class CustomerDAO {
 		
 			e.printStackTrace();
 		}finally {
-
 			try {
-				if(pstmt != null) {	pstmt.close();}
-				if(con != null) {	con.close();}
-		
-			}catch (SQLException e) {
+				if(pstmt != null) { pstmt.close(); }
+				if(con != null)  { con.close(); }
+			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		
 		}
+	}
+}
+
 		
 		
 	
-		
-		
-		
-		
-	}
-		
-		
-	}
 		
 		
 	
