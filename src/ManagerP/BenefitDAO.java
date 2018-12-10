@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 class BenefitDAO {
+	//프로그램을 처음 시작할 때 db에 날짜 값 생성하게 하기
+	
 	
 	BasicDataSource ds;
 	
