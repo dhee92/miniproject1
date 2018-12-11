@@ -86,8 +86,8 @@ public class swing {
 		frame.getContentPane().setLayout(null);
 		
 		ImagePanel panel_1 = new ImagePanel(new ImageIcon("./image/image_login.jpg").getImage());
-//		File f = new File("./image/image_login.jpg");
-//		System.out.println(f.exists()?"Exists":"doesn't exist");
+		File f = new File("./image/image_login.jpg");
+		System.out.println(f.exists()?"Exists":"doesn't exist");
 		//frame.getContentPane().add(imagePanel);
 		//frame.pack(); 
 	
