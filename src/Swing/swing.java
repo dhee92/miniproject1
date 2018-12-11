@@ -34,6 +34,7 @@ import javax.swing.text.StyledDocument;
 
 import StockManage.StockMain;
 
+
 import java.awt.GridLayout;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -41,7 +42,6 @@ import javax.swing.JTable;
 import javax.swing.JTextPane;
 
 public class swing {
-	String string = null;
 
 	class ImagePanel extends JPanel {
 		private Image img;
@@ -158,6 +158,7 @@ public class swing {
 	/**
 	 * Launch the application.
 	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -182,9 +183,9 @@ public class swing {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		
+
 		StockMain stm = new StockMain();
-		
+
 		frame = new JFrame();
 		frame.setTitle("Cafe POS");
 		frame.getContentPane().setFont(new Font("Arial", Font.PLAIN, 13));
@@ -229,132 +230,127 @@ public class swing {
 		// frame.getContentPane().add(panel_1);
 		frame.getContentPane().add(panel_1);
 		panel_1.setVisible(true);
-		
-		
+
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(UIManager.getColor("CheckBox.background"));
 		panel_2.setBounds(0, 0, 1200, 630);
 		frame.getContentPane().add(panel_2);
 		panel_2.setLayout(null);
+
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(UIManager.getColor("CheckBox.background"));
+		panel_3.setBounds(0, 0, 1200, 630);
+		frame.getContentPane().add(panel_3);
+		panel_3.setLayout(null);
+
+		JButton backButton1 = new JButton("Back");
+		backButton1.setBounds(0, 0, 117, 29);
+		panel_3.add(backButton1);
+
+		JLabel label_insertstock = new JLabel("재고 입력");
+		label_insertstock.setFont(new Font("Lucida Grande", Font.BOLD, 25));
+		label_insertstock.setBounds(38, 55, 153, 49);
+		panel_3.add(label_insertstock);
+
+		JLabel label = new JLabel("매출");
+		label.setFont(new Font("Lucida Grande", Font.BOLD, 25));
+		label.setBounds(625, 60, 61, 44);
+		panel_3.add(label);
+
+		JLabel label_bean = new JLabel("원두 :");
+		label_bean.setFont(new Font("Lucida Grande", Font.BOLD, 15));
+		label_bean.setBounds(38, 128, 61, 34);
+		panel_3.add(label_bean);
+
+		JLabel label_milk = new JLabel("우유 :");
+		label_milk.setFont(new Font("Lucida Grande", Font.BOLD, 15));
+		label_milk.setBounds(38, 172, 61, 34);
+		panel_3.add(label_milk);
+
+		JLabel label_vanilla = new JLabel("바닐라 :");
+		label_vanilla.setFont(new Font("Lucida Grande", Font.BOLD, 15));
+		label_vanilla.setBounds(299, 172, 87, 34);
+		panel_3.add(label_vanilla);
+
+		JLabel label_choco = new JLabel("초콜렛 :");
+		label_choco.setFont(new Font("Lucida Grande", Font.BOLD, 15));
+		label_choco.setBounds(299, 128, 81, 34);
+		panel_3.add(label_choco);
+
+		textField_bean = new JTextField();
+		textField_bean.setBounds(139, 133, 130, 26);
+		panel_3.add(textField_bean);
+		textField_bean.setColumns(10);
+		// int bean = Integer.parseInt(textField_bean.getText());
+
+		textField_milk = new JTextField();
+		textField_milk.setColumns(10);
+		textField_milk.setBounds(139, 177, 130, 26);
+		panel_3.add(textField_milk);
+		// int milk = Integer.parseInt(textField_milk.getText());
+
+		textField_choco = new JTextField();
+		textField_choco.setColumns(10);
+		textField_choco.setBounds(399, 133, 130, 26);
+		panel_3.add(textField_choco);
+		// int choco = Integer.parseInt(textField_choco.getText());
+
+		textField_vanilla = new JTextField();
+		textField_vanilla.setColumns(10);
+		textField_vanilla.setBounds(398, 177, 130, 26);
+		// int vanilla = Integer.parseInt(textField_vanilla.getText());
+
+		panel_3.add(textField_vanilla);
+
+		JLabel label_insertselect = new JLabel("재고 확인");
+		label_insertselect.setFont(new Font("Lucida Grande", Font.BOLD, 25));
+		label_insertselect.setBounds(38, 235, 153, 49);
+		panel_3.add(label_insertselect);
+
+		JTextPane textPane = new JTextPane();
+		textPane.setBounds(105, 309, -56, 49);
+		panel_3.add(textPane);
+
+		JButton button_stock = new JButton("입력하기");
+		button_stock.setBounds(408, 215, 117, 29);
+		panel_3.add(button_stock);
 		
-				JPanel panel_3 = new JPanel();
-				panel_3.setBackground(UIManager.getColor("CheckBox.background"));
-				panel_3.setBounds(0, 0, 1200, 630);
-				frame.getContentPane().add(panel_3);
-				panel_3.setLayout(null);
-				
-						JButton backButton1 = new JButton("Back");
-						backButton1.setBounds(0, 0, 117, 29);
-						panel_3.add(backButton1);
-						
-						JLabel label_insertstock = new JLabel("재고 입력");
-						label_insertstock.setFont(new Font("Lucida Grande", Font.BOLD, 25));
-						label_insertstock.setBounds(38, 55, 153, 49);
-						panel_3.add(label_insertstock);
-						
-						JLabel label = new JLabel("매출");
-						label.setFont(new Font("Lucida Grande", Font.BOLD, 25));
-						label.setBounds(625, 60, 61, 44);
-						panel_3.add(label);
-						
-						JLabel label_bean = new JLabel("원두 :");
-						label_bean.setFont(new Font("Lucida Grande", Font.BOLD, 15));
-						label_bean.setBounds(38, 128, 61, 34);
-						panel_3.add(label_bean);
-						
-						JLabel label_milk = new JLabel("우유 :");
-						label_milk.setFont(new Font("Lucida Grande", Font.BOLD, 15));
-						label_milk.setBounds(38, 172, 61, 34);
-						panel_3.add(label_milk);
-						
-						JLabel label_vanilla = new JLabel("바닐라 :");
-						label_vanilla.setFont(new Font("Lucida Grande", Font.BOLD, 15));
-						label_vanilla.setBounds(299, 172, 87, 34);
-						panel_3.add(label_vanilla);
-						
-						JLabel label_choco = new JLabel("초콜렛 :");
-						label_choco.setFont(new Font("Lucida Grande", Font.BOLD, 15));
-						label_choco.setBounds(299, 128, 81, 34);
-						panel_3.add(label_choco);
-						
-						textField_bean = new JTextField();
-						textField_bean.setBounds(139, 133, 130, 26);
-						panel_3.add(textField_bean);
-						textField_bean.setColumns(10);
-						//int bean = Integer.parseInt(textField_bean.getText());
-						
-						textField_milk = new JTextField();
-						textField_milk.setColumns(10);
-						textField_milk.setBounds(139, 177, 130, 26);
-						panel_3.add(textField_milk);
-						//int milk = Integer.parseInt(textField_milk.getText());
-						
-						
-						textField_choco = new JTextField();
-						textField_choco.setColumns(10);
-						textField_choco.setBounds(399, 133, 130, 26);
-						panel_3.add(textField_choco);
-						//int choco = Integer.parseInt(textField_choco.getText());
-						
-						textField_vanilla = new JTextField();
-						textField_vanilla.setColumns(10);
-						textField_vanilla.setBounds(398, 177, 130, 26);
-						//int vanilla  = Integer.parseInt(textField_vanilla.getText());
-						
-						
-						panel_3.add(textField_vanilla);
-						
-						JLabel label_insertselect = new JLabel("재고 확인");
-						label_insertselect.setFont(new Font("Lucida Grande", Font.BOLD, 25));
-						label_insertselect.setBounds(38, 235, 153, 49);
-						panel_3.add(label_insertselect);
-						
-						JTextPane textPane = new JTextPane();
-						textPane.setBounds(105, 309, -56, 49);
-						panel_3.add(textPane);
-						
-						JButton button_stock = new JButton("입력하기");
-						button_stock.setBounds(408, 215, 117, 29);
-						panel_3.add(button_stock);
-						button_stock.addActionListener(new ActionListener() {
+		button_stock.addActionListener(new ActionListener() {
 
-							@Override
-							public void actionPerformed(ActionEvent e) {
-								int bean = Integer.parseInt(textField_bean.getText());
-								int milk = Integer.parseInt(textField_milk.getText());
-								int choco = Integer.parseInt(textField_choco.getText());
-								int vanilla  = Integer.parseInt(textField_vanilla.getText());
-								stm.update(bean, milk, choco, vanilla);
-							}
-							
-						});
-						
-						
-						JTextArea textArea_1 = new JTextArea();
-						textArea_1.setBounds(656, 117, 395, 55);
-						panel_3.add(textArea_1);
-						
-						JTextArea textArea_stockselect = new JTextArea();
-						textArea_stockselect.setBounds(70, 309, 459, 177);
-						panel_3.add(textArea_stockselect);
-						
-						JButton button = new JButton("확인하기");
-						button.setBounds(61, 276, 117, 29);
-						panel_3.add(button);
-						
-								backButton1.addActionListener(new ActionListener() {
-									@Override
-									public void actionPerformed(ActionEvent e) {
-										panel_1.setVisible(false);
-										panel_3.setVisible(false);
-										panel_2.setVisible(true);
-						
-									}
-						
-								});
-								backButton1.setVisible(false);
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int bean = Integer.parseInt(textField_bean.getText());
+				int milk = Integer.parseInt(textField_milk.getText());
+				int choco = Integer.parseInt(textField_choco.getText());
+				int vanilla = Integer.parseInt(textField_vanilla.getText());
+				stm.update(bean, milk, choco, vanilla);
+			}
 
-	
+		});
+
+		JTextArea textArea_1 = new JTextArea();
+		textArea_1.setBounds(656, 117, 395, 55);
+		panel_3.add(textArea_1);
+
+		JTextArea textArea_stockselect = new JTextArea();
+		textArea_stockselect.setBounds(70, 309, 459, 177);
+		panel_3.add(textArea_stockselect);
+
+		JButton button = new JButton("확인하기");
+		button.setBounds(61, 276, 117, 29);
+		panel_3.add(button);
+
+		backButton1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				panel_1.setVisible(false);
+				panel_3.setVisible(false);
+				panel_2.setVisible(true);
+
+			}
+
+		});
+		backButton1.setVisible(false);
 
 		JPanel menu = new JPanel();
 		menu.setBounds(0, 30, 600, 500);
@@ -533,7 +529,7 @@ public class swing {
 				textArea.setText("");
 				// textArea.setText(e.getActionCommand());
 				// string = e.getActionCommand();
-				textArea.setText(string.concat(e.getActionCommand()));
+				//textArea.setText(string.concat(e.getActionCommand())); 오류?? 여서 잠시 주석함 
 				textArea.setVisible(true);
 			}
 		});
