@@ -15,7 +15,9 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.JPanel;
@@ -33,12 +35,20 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 
 import StockManage.StockMain;
+import EmpMange.empMain;
+import EmpMange.empDTO;
+import ManagerP.Benefit;
+import ManagerP.BenefitDTO;
+import Order_Stamp.Order_Stamp;
 
 import java.awt.GridLayout;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JTable;
 import javax.swing.JTextPane;
+
+
+
 
 public class swing {
 
@@ -70,6 +80,11 @@ public class swing {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
+	
+	
+
+	
+	
 
 	// textPrint method : 재고 관련
 	public String textPrint(List<String> e) {
@@ -138,26 +153,129 @@ public class swing {
 		}
 		for (String coffee : fl) {
 			if (coffee.equals("AH")) {
-				stb.append("Americano Hot \t " + Integer.toString(AHcnt) + "\n");
+				stb.append("Americano Hot \t\t " + Integer.toString(AHcnt) + "\n");
 
 			} else if (coffee.equals("LH")) {
 				stb.append("Latte Hot \t\t " + Integer.toString(LHcnt) + "\n");
 			} else if (coffee.equals("MH")) {
-				stb.append("Mocha latte Hot \t " + Integer.toString(MHcnt) + "\n");
+				stb.append("Mocha latte Hot \t\t " + Integer.toString(MHcnt) + "\n");
 			} else if (coffee.equals("VH")) {
 				stb.append("Vanilla latte Hot \t " + Integer.toString(VHcnt) + "\n");
 			} else if (coffee.equals("AI")) {
-				stb.append("Americano Ice \t " + Integer.toString(AIcnt) + "\n");
+				stb.append("Americano Ice \t\t " + Integer.toString(AIcnt) + "\n");
 			} else if (coffee.equals("LI")) {
-				stb.append("Latte Ice \t " + Integer.toString(LIcnt) + "\n");
+				stb.append("Latte Ice \t\t " + Integer.toString(LIcnt) + "\n");
 			} else if (coffee.equals("MI")) {
-				stb.append("Mocha latte Ice \t " + Integer.toString(MIcnt) + "\n");
+				stb.append("Mocha latte Ice \t\t " + Integer.toString(MIcnt) + "\n");
 			} else if (coffee.equals("VI")) {
-				stb.append("Vanilla latte Ice \t " + Integer.toString(VIcnt) + "\n");
+				stb.append("Vanilla latte Ice \t\t " + Integer.toString(VIcnt) + "\n");
 			}
 		}
 		orderedCoffee = stb.toString();
 		return orderedCoffee;
+	}
+	
+	public void ObtainedMoney(List<String> e) {
+		Order_Stamp os = new Order_Stamp();
+		Benefit bnt=new Benefit();
+		int money=0;
+		StringBuffer stb = new StringBuffer();
+		int AHcnt = 0, LHcnt = 0, MHcnt = 0, VHcnt = 0, AIcnt = 0, LIcnt = 0, MIcnt = 0, VIcnt = 0;
+		List<String> fl = new ArrayList();
+		for (String coffee : e) {
+			if (coffee.equals("AH")) {
+				++AHcnt;
+				if (fl.contains("AH")) {
+					continue;
+				} else {
+					fl.add("AH");
+				}
+			} else if (coffee.equals("LH")) {
+				++LHcnt;
+				if (fl.contains("LH")) {
+					continue;
+				} else {
+					fl.add("LH");
+				}
+			} else if (coffee.equals("MH")) {
+				++MHcnt;
+				if (fl.contains("MH")) {
+					continue;
+				} else {
+					fl.add("MH");
+				}
+			} else if (coffee.equals("VH")) {
+				++VHcnt;
+				if (fl.contains("VH")) {
+					continue;
+				} else {
+					fl.add("VH");
+				}
+			} else if (coffee.equals("AI")) {
+				++AIcnt;
+				if (fl.contains("AI")) {
+					continue;
+				} else {
+					fl.add("AI");
+				}
+			} else if (coffee.equals("LI")) {
+				++LIcnt;
+				if (fl.contains("LI")) {
+					continue;
+				} else {
+					fl.add("LI");
+				}
+			} else if (coffee.equals("MI")) {
+				++MIcnt;
+				if (fl.contains("MI")) {
+					continue;
+				} else {
+					fl.add("MI");
+				}
+			} else if (coffee.equals("VI")) {
+				++VIcnt;
+				if (fl.contains("VI")) {
+					continue;
+				} else {
+					fl.add("VI");
+				}
+			}
+		}
+		for (String coffee : fl) {
+			if (coffee.equals("AH")) {
+				money+=(AHcnt*3000);
+				os.OrderAmericano(AHcnt);
+				
+			} else if (coffee.equals("LH")) {
+				money+=(LHcnt*3000);
+				os.OrderLatte(LHcnt);
+				
+			} else if (coffee.equals("MH")) {
+				money+=(MHcnt*3000);
+				os.OrderMocha(AHcnt);
+				
+			} else if (coffee.equals("VH")) {
+				money+=(VHcnt*3000);
+				os.OrderVanilla(AHcnt);
+				
+			} else if (coffee.equals("AI")) {
+				money+=(AIcnt*3000);
+				os.OrderAmericano(AIcnt);
+				
+			} else if (coffee.equals("LI")) {
+				money+=(LIcnt*3000);
+				os.OrderLatte(LIcnt);
+				
+			} else if (coffee.equals("MI")) {
+				money+=(MIcnt*3000);
+				os.OrderMocha(MIcnt);
+				
+			} else if (coffee.equals("VI")) {
+				money+=(VIcnt*3000);
+				os.OrderVanilla(VIcnt);
+			}
+			bnt.update(money);
+		}	
 	}
 
 	/**
@@ -190,7 +308,17 @@ public class swing {
 	private void initialize() {
 
 		StockMain stm = new StockMain();
+		empMain eM = new empMain();
+		Benefit bnt = new Benefit();
+		BenefitDTO bdto = new BenefitDTO();
+		
+		Date today = new Date();
 		List<String> ClickedCoffee = new ArrayList();
+		
+		SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd");
+		String TodayDate = date.format(today);
+		
+		
 
 		// 전체 frame 설정
 		frame = new JFrame();
@@ -293,8 +421,9 @@ public class swing {
 		charge.setFont(new Font("Arial", Font.BOLD, 15));
 		charge.setForeground(new Color(0, 0, 0));
 		charge.setBounds(0, 400, 600, 100);
-		charge.setBackground(new Color(0, 0, 0));// 2896CC 이 컬러코드로 하고싶다.
+		//charge.setBackground(new Color(0, 0, 0));// 2896CC 이 컬러코드로 하고싶다.
 		sale.add(charge);
+		
 
 		// textArea
 		JTextArea textArea = new JTextArea();
@@ -328,6 +457,9 @@ public class swing {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setVisible(false);
 				textArea.setText("");
+				textArea.setText(e.getActionCommand());
+				ClickedCoffee.add("LI");
+				textArea.setText(textPrint(ClickedCoffee));
 				// textArea.setText(e.getActionCommand());
 				// string = e.getActionCommand();
 				// textArea.setText(string.concat(e.getActionCommand())); 오류?? 여서 잠시 주석함
@@ -336,34 +468,81 @@ public class swing {
 		});
 		menu3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.replaceSelection(menu3.getText());
+				textArea.setVisible(false);
+				textArea.setText("");
+				textArea.setText(e.getActionCommand());
+				ClickedCoffee.add("MI");
+				textArea.setText(textPrint(ClickedCoffee));
+				textArea.setVisible(true);
 			}
 		});
 		menu4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.replaceSelection(menu4.getText());
+				textArea.setVisible(false);
+				textArea.setText("");
+				textArea.setText(e.getActionCommand());
+				ClickedCoffee.add("VI");
+				textArea.setText(textPrint(ClickedCoffee));
+				textArea.setVisible(true);
 			}
 		});
 		menu5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.replaceSelection(menu5.getText());
+				textArea.setVisible(false);
+				textArea.setText("");
+				textArea.setText(e.getActionCommand());
+				ClickedCoffee.add("AH");
+				textArea.setText(textPrint(ClickedCoffee));
+				textArea.setVisible(true);
 			}
 		});
 		menu6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.replaceSelection(menu6.getText());
+				textArea.setVisible(false);
+				textArea.setText("");
+				textArea.setText(e.getActionCommand());
+				ClickedCoffee.add("LH");
+				textArea.setText(textPrint(ClickedCoffee));
+				textArea.setVisible(true);
 			}
 		});
 		menu7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.replaceSelection(menu7.getText());
+				textArea.setVisible(false);
+				textArea.setText("");
+				textArea.setText(e.getActionCommand());
+				ClickedCoffee.add("MH");
+				textArea.setText(textPrint(ClickedCoffee));
+				textArea.setVisible(true);
 			}
 		});
 		menu8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.replaceSelection(menu8.getText());
+				textArea.setVisible(false);
+				textArea.setText("");
+				textArea.setText(e.getActionCommand());
+				ClickedCoffee.add("VH");
+				textArea.setText(textPrint(ClickedCoffee));
+				textArea.setVisible(true);
 			}
 		});
+		
+		// 주문 확인 리스너
+		charge.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ObtainedMoney(ClickedCoffee);
+				textArea.setText("");	
+				
+				
+				}
+
+		});
+		
+		
+		
+		
 
 		// panel_2.bottom 패널 : 관리자,직원 버튼 클릭이 있는 패널
 		JPanel bottom = new JPanel();
@@ -399,24 +578,7 @@ public class swing {
 		button_stockselect.setBounds(61, 276, 117, 29);
 		panel_3.add(button_stockselect);
 
-		adminButton.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				backButton1.setVisible(true);
-				panel_1.setVisible(false);
-				panel_2.setVisible(false);
-				panel_3.setVisible(true);
-				button_stockinsert.setVisible(true);
-				button_stockselect.setVisible(true);
-				textField_milk.setVisible(true);
-				textField_bean.setVisible(true);
-				textField_choco.setVisible(true);
-				textField_vanilla.setVisible(true);
-
-			}
-
-		});
+	
 
 		// 관리자 패널에 재고입력 라벨 추가
 		JLabel label_insertstock = new JLabel("재고 입력");
@@ -429,6 +591,9 @@ public class swing {
 		label.setFont(new Font("Lucida Grande", Font.BOLD, 25));
 		label.setBounds(625, 60, 61, 44);
 		panel_3.add(label);
+		
+		
+	
 
 		// 관리자 패널에 stock 이름 추가
 		JLabel label_bean = new JLabel("원두 :");
@@ -496,14 +661,56 @@ public class swing {
 			}
 
 		});
-
+		
 		JTextArea textArea_1 = new JTextArea();
 		textArea_1.setBounds(656, 117, 395, 55);
 		panel_3.add(textArea_1);
+		
+		
+		adminButton.addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				backButton1.setVisible(true);
+				panel_1.setVisible(false);
+				panel_2.setVisible(false);
+				panel_3.setVisible(true);
+				button_stockinsert.setVisible(true);
+				button_stockselect.setVisible(true);
+				textField_milk.setVisible(true);
+				textField_bean.setVisible(true);
+				textField_choco.setVisible(true);
+				textField_vanilla.setVisible(true);
+				
+				textArea_1.setText(" ");
+				textArea_1.append("   오늘 날짜 \t 오늘 매출 \n ");
+				int todayMoney = bnt.Selected_ShowBenefit(TodayDate);
+				String Tm = Integer.toString(todayMoney);
+				textArea_1.append("  "+TodayDate+"      "+Tm);
+
+			}
+
+		});
+		
+		
+		
 		JTextArea textArea_stockselect = new JTextArea();
 		textArea_stockselect.setBounds(70, 309, 459, 177);
 		panel_3.add(textArea_stockselect);
+		
+		button_stockselect.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				textArea_stockselect.setText("");
+				textArea_stockselect.append(" \n");
+				textArea_stockselect.append(" 원두 \t 우유\t 초코 시럽\t 바닐라 시럽 \n");
+				textArea_stockselect.append(" \n");
+				textArea_stockselect.append((stm.select()));
+			}
+
+		});	
+		
 
 		// backButton1 : 관리자 패널에 backButton1 누르면 메뉴로 다시 돌아감
 		backButton1.addActionListener(new ActionListener() {
@@ -595,7 +802,8 @@ public class swing {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// 여기에 추가해주세여!!!
+				eM.insert(textField_empno.getText(), textField_empname.getText(), 
+						textField_emptel.getText(), textField_empsal.getText());
 
 			}
 
@@ -619,6 +827,23 @@ public class swing {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 여기에 추가해주세여!!!
+				textArea_emplist.append("   직원 번호                이름                전화번호           시급     근무시간\n");
+				for(empDTO dto : eM.select()){
+					int no =dto.getNo();
+					String Chno = Integer.toString(no);
+					textArea_emplist.append("           "+Chno +"                     ");
+					String name = dto.getName();
+					textArea_emplist.append(name +"\t");
+					String tel = dto.getTel();
+					textArea_emplist.append(tel +"     ");
+					int sal = dto.getMsalary();
+					String Chsal = Integer.toString(sal);
+					textArea_emplist.append(Chsal +"            ");
+					int wh = dto.getWorkhour();
+					String Chwh = Integer.toString(wh);
+					textArea_emplist.append(Chwh);
+					
+				}
 
 			}
 

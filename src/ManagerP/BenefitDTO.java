@@ -1,6 +1,6 @@
 package ManagerP;
 
-class BenefitDTO {
+public class BenefitDTO {
 	private String yyyymmdd;
 	private int benefit;
 	

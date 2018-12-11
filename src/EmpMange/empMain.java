@@ -83,7 +83,7 @@ public class empMain{
 		dao.insert(dto);
 	}
 	
-	public List<empDTO> select(empDAO dao) {
+	public List<empDTO> select() {
 		List<empDTO> list = null;
 		list = dao.select();
 			

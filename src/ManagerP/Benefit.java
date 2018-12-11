@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Benefit {
 	BenefitDAO dao;
+	BenefitDTO dto=null;
 	Date today;
 	String TodayDate;
 
@@ -20,11 +21,10 @@ public class Benefit {
 	
 	public void update(int ObtainedMoney) {
 		
-		BenefitDTO dto = new BenefitDTO();
+		dto = new BenefitDTO();
 		
 		dto.setBenefit(ObtainedMoney);
 		dto.setYyyymmdd(TodayDate);
-		
 		dao.updateBenefit(dto);		
 	}
 	
@@ -33,6 +33,7 @@ public class Benefit {
 		List<BenefitDTO> list = null;
 		list = dao.ShowBenefit();
 			
+		
 		/*
 		for(BenefitDTO e : list) {
 			String date = e.getYyyymmdd();
@@ -40,13 +41,13 @@ public class Benefit {
 		}*/
 		return list;
 	}
-	public BenefitDTO Selected_ShowBenefit(String Date) {
+	public int Selected_ShowBenefit(String Date) {
 		//Date는 사용자로부터 날짜를 입력 받아올것 2018/12/30 과 같은 방식
-		BenefitDTO dto=null;
-		dto = dao.ShowBenefit_Selectday(Date);	
-
 		
-		return dto;
+		
+		int result = dao.ShowBenefit_Selectday(Date);	
+		
+		return result;
 	}
 	
 	

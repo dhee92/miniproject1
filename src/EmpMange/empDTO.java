@@ -1,6 +1,6 @@
 package EmpMange;
 
-class empDTO {
+public class empDTO {
 	private int no;
 	private int msalary;
 	private String name;

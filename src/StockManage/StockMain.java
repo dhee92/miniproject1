@@ -24,15 +24,22 @@ public class StockMain {
 		Sdao.update(dto);
 			
 	}		
-	public void select() {
+	public String select() {
+		StringBuffer sb = new StringBuffer();
+		String st=null;
 		StockDTO dto =null;
 		dto=Sdao.select();
-				 
-		int bean = dto.getBeanQ();
-		int milk = dto.getMilkQ();
-		int choco = dto.getChocoQ();
-		int vanilla = dto.getVanillaQ();
-			
+		
+		sb.append(" "+ Integer.toString(dto.getBeanQ())+"\t");
+		sb.append(" "+ Integer.toString(dto.getMilkQ())+"\t");
+		sb.append(" "+ Integer.toString(dto.getChocoQ())+"\t");
+		sb.append( Integer.toString(dto.getVanillaQ()) );
+					
+		st = sb.toString();
+		
+		return st;
 	}
+
+	
 
 }

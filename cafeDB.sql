@@ -32,8 +32,9 @@ select * from customer;
 --일별 영업이익
 drop table benefit;
 create table benefit( 
-	YYYMMDD			varchar2(20),
+	YYYYMMDD			varchar2(20),
 	moneyofday		number(9)
 	);
-select * from benefit;
-
+select * from benefit where yyyymmdd='2018/12/12';
+insert into benefit values('2018/12/12', 0);
+insert into benefit values('2018/12/13', 0);
