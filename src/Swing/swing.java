@@ -36,6 +36,8 @@ import javax.swing.Action;
 import javax.swing.JTable;
 
 public class swing {
+	String string= null;
+	
 	
 	class ImagePanel extends JPanel{
 		private Image img;
@@ -142,76 +144,76 @@ public class swing {
 		menu.setLayout(null);
 		
 		//메뉴버튼 8개 이미지 넣을지 말지.... 
-		JButton menu1 = new JButton();
+		JButton menu1 = new JButton("Iced Americano \n 3000");
 		menu1.setBounds(0, 0, 150, 250);
 		menu.add(menu1);
-		menu1.setLayout(new BorderLayout());
-		JLabel menu1Label1 = new JLabel("Iced Americano");
-		JLabel menu1Label2 = new JLabel("\t\t3000");
-		menu1.add(menu1Label1, BorderLayout.NORTH);
-		menu1.add(menu1Label2, BorderLayout.SOUTH);
+		//menu1.setLayout(new BorderLayout());
+		//JLabel menu1Label1 = new JLabel("Iced Americano");
+		//JLabel menu1Label2 = new JLabel("\t\t3000");
+		//menu1.add(menu1Label1, BorderLayout.NORTH);
+		//menu1.add(menu1Label2, BorderLayout.SOUTH);
 		
-		JButton menu2 = new JButton();
+		JButton menu2 = new JButton("Iced Latte \n 3000");
 		menu2.setBounds(150, 0, 150, 250);
-		menu2.setLayout(new BorderLayout());
-		JLabel menu2Label1 = new JLabel("Iced Latte");
-		JLabel menu2Label2 = new JLabel("\t\t3000");
-		menu2.add(menu2Label1, BorderLayout.NORTH);
-		menu2.add(menu2Label2, BorderLayout.SOUTH);
+//		menu2.setLayout(new BorderLayout());
+//		JLabel menu2Label1 = new JLabel("Iced Latte");
+//		JLabel menu2Label2 = new JLabel("\t\t3000");
+//		menu2.add(menu2Label1, BorderLayout.NORTH);
+//		menu2.add(menu2Label2, BorderLayout.SOUTH);
 		menu.add(menu2);
 		
-		JButton menu3 = new JButton();
+		JButton menu3 = new JButton("Iced Vanilla Latte \n 3000");
 		menu3.setBounds(300, 0, 150, 250);
-		menu3.setLayout(new BorderLayout());
-		JLabel menu3Label1 = new JLabel("Iced Vanilla Latte");
-		JLabel menu3Label2 = new JLabel("\t\t3000");
-		menu3.add(menu3Label1, BorderLayout.NORTH);
-		menu3.add(menu3Label2, BorderLayout.SOUTH);
+//		menu3.setLayout(new BorderLayout());
+//		JLabel menu3Label1 = new JLabel("Iced Vanilla Latte");
+//		JLabel menu3Label2 = new JLabel("\t\t3000");
+//		menu3.add(menu3Label1, BorderLayout.NORTH);
+//		menu3.add(menu3Label2, BorderLayout.SOUTH);
 		menu.add(menu3);
 		
-		JButton menu4 = new JButton();
+		JButton menu4 = new JButton("Iced Mocha \n 3000");
 		menu4.setBounds(450, 0, 150, 250);
-		menu4.setLayout(new BorderLayout());
-		JLabel menu4Label1 = new JLabel("Iced Mocha");
-		JLabel menu4Label2 = new JLabel("\t\t3000");
-		menu4.add(menu4Label1, BorderLayout.NORTH);
-		menu4.add(menu4Label2, BorderLayout.SOUTH);
+//		menu4.setLayout(new BorderLayout());
+//		JLabel menu4Label1 = new JLabel("Iced Mocha");
+//		JLabel menu4Label2 = new JLabel("\t\t3000");
+//		menu4.add(menu4Label1, BorderLayout.NORTH);
+//		menu4.add(menu4Label2, BorderLayout.SOUTH);
 		menu.add(menu4);
 		
-		JButton menu5 = new JButton();
+		JButton menu5 = new JButton("Hot Americano \n 3000");
 		menu5.setBounds(0, 250, 150, 250);
-		menu5.setLayout(new BorderLayout());
-		JLabel menu5Label1 = new JLabel("Hot Americano");
-		JLabel menu5Label2 = new JLabel("\t\t3000");
-		menu5.add(menu5Label1, BorderLayout.NORTH);
-		menu5.add(menu5Label2, BorderLayout.SOUTH);
+//		menu5.setLayout(new BorderLayout());
+//		JLabel menu5Label1 = new JLabel("Hot Americano");
+//		JLabel menu5Label2 = new JLabel("\t\t3000");
+//		menu5.add(menu5Label1, BorderLayout.NORTH);
+//		menu5.add(menu5Label2, BorderLayout.SOUTH);
 		menu.add(menu5);
 		
-		JButton menu6 = new JButton();
+		JButton menu6 = new JButton("Hot Latte \n 3000");
 		menu6.setBounds(150, 250, 150, 250);
-		menu6.setLayout(new BorderLayout());
-		JLabel menu6Label1 = new JLabel("Hot Latte");
-		JLabel menu6Label2 = new JLabel("\t\t3000");
-		menu6.add(menu6Label1, BorderLayout.NORTH);
-		menu6.add(menu6Label2, BorderLayout.SOUTH);
+//		menu6.setLayout(new BorderLayout());
+//		JLabel menu6Label1 = new JLabel("Hot Latte");
+//		JLabel menu6Label2 = new JLabel("\t\t3000");
+//		menu6.add(menu6Label1, BorderLayout.NORTH);
+//		menu6.add(menu6Label2, BorderLayout.SOUTH);
 		menu.add(menu6);
 		
-		JButton menu7 = new JButton();
+		JButton menu7 = new JButton("Hot Vanilla Latte \n 3000");
 		menu7.setBounds(300, 250, 150, 250);
-		menu7.setLayout(new BorderLayout());
-		JLabel menu7Label1 = new JLabel("Hot Vanilla Latte");
-		JLabel menu7Label2 = new JLabel("\t\t3000");
-		menu7.add(menu7Label1, BorderLayout.NORTH);
-		menu7.add(menu7Label2, BorderLayout.SOUTH);
+//		menu7.setLayout(new BorderLayout());
+//		JLabel menu7Label1 = new JLabel("Hot Vanilla Latte");
+//		JLabel menu7Label2 = new JLabel("\t\t3000");
+//		menu7.add(menu7Label1, BorderLayout.NORTH);
+//		menu7.add(menu7Label2, BorderLayout.SOUTH);
 		menu.add(menu7);
 		
-		JButton menu8 = new JButton();
+		JButton menu8 = new JButton("Hot Mocha \n 3000");
 		menu8.setBounds(450, 250, 150, 250);
-		menu8.setLayout(new BorderLayout());
-		JLabel menu8Label1 = new JLabel("Hot Mocha");
-		JLabel menu8Label2 = new JLabel("\t\t3000");
-		menu8.add(menu8Label1, BorderLayout.NORTH);
-		menu8.add(menu8Label2, BorderLayout.SOUTH);
+//		menu8.setLayout(new BorderLayout());
+//		JLabel menu8Label1 = new JLabel("Hot Mocha");
+//		JLabel menu8Label2 = new JLabel("\t\t3000");
+//		menu8.add(menu8Label1, BorderLayout.NORTH);
+//		menu8.add(menu8Label2, BorderLayout.SOUTH);
 		menu.add(menu8);
 		
 		
@@ -233,7 +235,7 @@ public class swing {
 		
 		//JTextArea 가운데 정렬 
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(129, 77, 0, 16);
+		textArea.setBounds(130, 78, 300, 300);
 //		Document document = textArea.getDocument();
 //		SimpleAttributeSet center = new SimpleAttributeSet();
 //		StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
@@ -278,16 +280,26 @@ public class swing {
 		textArea.setVisible(true);
 		menu1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.setText(menu1Label1.getText());
-				textArea.setText(menu1Label2.getText());
-				
+				textArea.setVisible(false);
+				textArea.setText("");
+				textArea.setText(e.getActionCommand());
+				string = e.getActionCommand();
+				//System.out.println(e.getActionCommand());
+				//textArea.setText(menu1Label2.getText());
+				//textArea.append(e.getActionCommand()+"\n");
+				textArea.setVisible(true);
 				
 			}
 		});
+		
 		menu2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.setText(menu2Label1.getText());
-				textArea.setText(menu2Label2.getText());
+				textArea.setVisible(false);
+				textArea.setText("");
+				//textArea.setText(e.getActionCommand());
+				//string = e.getActionCommand();
+				textArea.setText(string.concat(e.getActionCommand()));
+				textArea.setVisible(true);
 			}
 		});
 		menu3.addActionListener(new ActionListener() {
