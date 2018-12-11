@@ -258,7 +258,6 @@ public class swing {
 			public void actionPerformed(ActionEvent e) {
 				panel_1.setVisible(false);
 				panel_3.setVisible(false);
-				//panel_4.setVisible(false);
 				panel_2.setVisible(true);
 				
 			}
