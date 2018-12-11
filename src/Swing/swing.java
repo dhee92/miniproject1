@@ -242,9 +242,31 @@ public class swing {
 //		((StyledDocument) document).setParagraphAttributes(0, document.getLength(), center, false);
 		sale.add(textArea);
 				
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(UIManager.getColor("CheckBox.background"));
+		panel_3.setBounds(0, 0, 1200, 630);
+		frame.getContentPane().add(panel_3);
+		panel_3.setLayout(null);
 		
+		
+		JButton backButton1 = new JButton("Back");
+		backButton1.setBounds(0, 0, 117, 29);
+		panel_3.add(backButton1);
+		
+		backButton1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				panel_1.setVisible(false);
+				panel_3.setVisible(false);
+				//panel_4.setVisible(false);
+				panel_2.setVisible(true);
+				
+			}
+			
+		});
 		
 		JPanel bottom = new JPanel();
+		
 		bottom.setBounds(0, 530, 1200, 100);
 		bottom.setBackground(new Color(0, 0, 51));
 		panel_2.add(bottom);
@@ -258,19 +280,65 @@ public class swing {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				backButton1.setVisible(true);
+				panel_1.setVisible(false);
+				panel_2.setVisible(false);
+				panel_3.setVisible(true);
 				
 			}
 			
 		});
 		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBackground(UIManager.getColor("CheckBox.background"));
+		panel_4.setBounds(0, 0, 1200, 630);
+		frame.getContentPane().add(panel_4);
+		panel_4.setLayout(null);
+		
+		JButton backButton2 = new JButton("Back");
+		backButton2.setBounds(0, 0, 117, 29);
+		panel_4.add(backButton2);
+		
+		backButton2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				panel_1.setVisible(false);
+				panel_3.setVisible(false);
+				panel_4.setVisible(false);
+				panel_2.setVisible(true);
+				
+			}
+			
+		});
+		
+		
 		JButton empButton = new JButton("직원");
 		empButton.setBounds(135, 21, 97, 23);
 		bottom.add(empButton);
 		
+		empButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				backButton2.setVisible(true);
+				panel_1.setVisible(false);
+				panel_2.setVisible(false);
+				panel_3.setVisible(false);
+				panel_4.setVisible(true);
+				
+			}
+			
+		});
+		
+		
 		panel_2.setVisible(true);
 		menu.setVisible(false);
 		sale.setVisible(false);
-
+		empButton.setVisible(false);
+		adminButton.setVisible(false);
+		backButton1.setVisible(false);
+		backButton2.setVisible(false);
+		
 		logBtn.addActionListener(new ActionListener() {
 
 			@Override
@@ -283,6 +351,8 @@ public class swing {
 					panel_2.setVisible(true);
 					menu.setVisible(true);
 					sale.setVisible(true);
+					empButton.setVisible(true);
+					adminButton.setVisible(true);
 					panel_1.setVisible(false);
 					
 				}else {
