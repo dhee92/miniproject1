@@ -248,8 +248,24 @@ public class swing {
 		bottom.setBounds(0, 530, 1200, 100);
 		bottom.setBackground(new Color(0, 0, 51));
 		panel_2.add(bottom);
-		JLabel bottomlabel = new JLabel("bottom");
-		bottom.add(bottomlabel);
+		bottom.setLayout(null);
+		
+		JButton adminButton = new JButton("관리자");
+		adminButton.setBounds(26, 21, 97, 23);
+		bottom.add(adminButton);
+		
+		adminButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+			
+		});
+		
+		JButton empButton = new JButton("직원");
+		empButton.setBounds(135, 21, 97, 23);
+		bottom.add(empButton);
 		
 		panel_2.setVisible(true);
 		menu.setVisible(false);
