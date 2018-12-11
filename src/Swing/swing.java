@@ -311,11 +311,11 @@ public class swing {
 		textPane.setBounds(105, 309, -56, 49);
 		panel_3.add(textPane);
 
-		JButton button_stock = new JButton("입력하기");
-		button_stock.setBounds(408, 215, 117, 29);
-		panel_3.add(button_stock);
+		JButton button_stockinsert = new JButton("입력하기"); //재고 입력하기 버튼 
+		button_stockinsert.setBounds(408, 215, 117, 29);
+		panel_3.add(button_stockinsert);
 		
-		button_stock.addActionListener(new ActionListener() {
+		button_stockinsert.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -336,9 +336,9 @@ public class swing {
 		textArea_stockselect.setBounds(70, 309, 459, 177);
 		panel_3.add(textArea_stockselect);
 
-		JButton button = new JButton("확인하기");
-		button.setBounds(61, 276, 117, 29);
-		panel_3.add(button);
+		JButton button_stockselect = new JButton("확인하기"); //재고 확인하기 버튼 
+		button_stockselect.setBounds(61, 276, 117, 29);
+		panel_3.add(button_stockselect);
 
 		backButton1.addActionListener(new ActionListener() {
 			@Override
@@ -476,6 +476,13 @@ public class swing {
 				panel_1.setVisible(false);
 				panel_2.setVisible(false);
 				panel_3.setVisible(true);
+				button_stockinsert.setVisible(true);
+				button_stockselect.setVisible(true);
+				textField_milk.setVisible(true);
+				textField_bean.setVisible(true);
+				textField_choco.setVisible(true);
+				textField_vanilla.setVisible(true);
+				
 
 			}
 
@@ -564,8 +571,15 @@ public class swing {
 			}
 		});
 
+		//logBtn누르기 전에 첫화면에서 버튼들 안보이게 하기위해서 
 		backButton2.setVisible(false);
-
+		button_stockinsert.setVisible(false);
+		button_stockselect.setVisible(false);
+		textField_milk.setVisible(false);
+		textField_bean.setVisible(false);
+		textField_choco.setVisible(false);
+		textField_vanilla.setVisible(false);
+		
 		logBtn.addActionListener(new ActionListener() {
 
 			@Override
