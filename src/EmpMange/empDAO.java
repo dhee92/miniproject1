@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 
-class empDAO {
+public class empDAO {
 		BasicDataSource ds;
 	
 	empDAO(){
@@ -31,7 +31,7 @@ class empDAO {
 		
 		try {
 			con = ds.getConnection();
-			String sql = "select * from customer order by no";
+			String sql = "select * from employee order by no";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
@@ -40,46 +40,39 @@ class empDAO {
 				dto.setNo(rs.getInt("no"));
 				dto.setMsalary(rs.getInt("msalary"));
 				dto.setName(rs.getString("name"));
-				dto.setWorkhour(rs.getInt("work hour"));
+				dto.setWorkhour(rs.getInt("workhour"));
 				dto.setTel(rs.getString("tel"));
 				list.add(dto);
 			}
-	}catch (SQLException e) {
-		e.printStackTrace();
-	}finally {
-		try {
-			if(rs != null) { rs.close(); }
-			if(pstmt != null) { pstmt.close(); }
-			if(con != null)  { con.close(); }
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) { rs.close(); }
+				if(pstmt != null) { pstmt.close(); }
+				if(con != null)  { con.close(); }
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+			}
+		}	
+		return list;
 	}
 	
-	return list;
-}
 	public void insert(empDTO dto) {
 		Connection con = null;
-		String sql = "insert into customer values(?, ?, ?, ?, ?)";
+		String sql = "insert into employee values(?, ?, ?, ?, ?)";
 		PreparedStatement pstmt  = null;
 		
 		try {
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, dto.getNo());
-			pstmt.setInt(2, dto.getMsalary());
-			pstmt.setString(3, dto.getName());
+			pstmt.setString(2, dto.getName());
+			pstmt.setString(3, dto.getTel());
 			pstmt.setInt(4, dto.getWorkhour());
-			pstmt.setString(5, dto.getTel());
-			
-			int result = pstmt.executeUpdate();
-			
-			if(result == 1) {
-				System.out.println("데이터 저장 성공.");
-			} else {
-				System.out.println("데이터 저장 실패.");
-			}
-			
+			pstmt.setInt(5, dto.getMsalary());
+			pstmt.executeUpdate();
+						
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -90,72 +83,109 @@ class empDAO {
 				e.printStackTrace();
 			}
 		}
-}
-
-public void update(empDTO dto) {
-	Connection con = null;
-	PreparedStatement pstmt = null;
-	String sql = "update customer set name=?,  tel=? , where no=?, where msalary=?, where workhour = ? ";
+	}
 	
-	try {
-		con = ds.getConnection();
-		pstmt = con.prepareStatement(sql);
-		
-		
-		pstmt.setInt(1, dto.getNo());
-		pstmt.setInt(2, dto.getMsalary());
-		pstmt.setString(3, dto.getName());
-		pstmt.setInt(4, dto.getWorkhour());
-		pstmt.setString(5, dto.getTel());
-		/*pstmt.setInt(4, dto.getNo());
-		pstmt.setInt(5, dto.getSalary());*/
-		
-		int result = pstmt.executeUpdate();
-		
-		if(result == 1) {
-			System.out.println("데이터 수정 성공.");
-		} else {
-			System.out.println("데이터 수정 실패.");
-		}
-		
-	} catch (SQLException e) {
-		e.printStackTrace();
-	} finally {
+	
+	//개인정보 수정
+	public void update_Info(empDTO dto) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "update employee set name=?,  tel=? , where no=?";
+	
 		try {
-			if(pstmt != null) { pstmt.close(); }
-			if(con != null)  { con.close(); }
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+		
+			
+			pstmt.setString(1, dto.getName());
+			pstmt.setString(2, dto.getTel());
+			pstmt.setInt(3, dto.getNo());
+			pstmt.executeUpdate();
+				
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt != null) { pstmt.close(); }
+				if(con != null)  { con.close(); }
+			} catch (SQLException e) {
+			e.printStackTrace();
+			}
 		}
 	}
-}
-public void delete(int no) {
-	Connection con = null;
-	PreparedStatement pstmt = null;
-	String sql = "delete from customer where no = ?";
 	
-	try {
-		con = ds.getConnection();
-		
-		pstmt = con.prepareStatement(sql);
-		pstmt.setInt(1, no);
-		
-		int result = pstmt.executeUpdate();
-		
-		if(result == 1) {
-			System.out.println("회원 삭제 성공.");
-		} else {
-			System.out.println("회원 삭제 실패");
-		}
-	} catch (SQLException e) {
-		e.printStackTrace();
-	} finally {
+	//시급 수정
+	public void update_Sal(empDTO dto) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "update employee set Msalary=? , where no=?";
+	
 		try {
-			if(pstmt != null) { pstmt.close(); }
-			if(con != null)  { con.close(); }
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+					
+			pstmt.setInt(1, dto.getMsalary());
+			pstmt.setInt(2, dto.getNo());
+			pstmt.executeUpdate();
+				
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt != null) { pstmt.close(); }
+				if(con != null)  { con.close(); }
+			} catch (SQLException e) {
+			e.printStackTrace();
+			}
 		}
 	}
-}
+	
+	//근무시간 수정
+	public void update_WH(empDTO dto) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "update employee set workhour=workhour+? , where no=?";
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+					
+			pstmt.setInt(1, dto.getWorkhour());
+			pstmt.setInt(2, dto.getNo());
+			pstmt.executeUpdate();
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt != null) { pstmt.close(); }
+				if(con != null)  { con.close(); }
+			} catch (SQLException e) {
+			e.printStackTrace();
+			}
+		}
+	}	
+	
+	public void delete(int no) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "delete from employee where no = ?";
+		
+		try {
+			con = ds.getConnection();
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			pstmt.executeUpdate();
+						
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt != null) { pstmt.close(); }
+				if(con != null)  { con.close(); }
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }

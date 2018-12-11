@@ -12,9 +12,9 @@ import org.apache.commons.dbcp2.BasicDataSource;
 public class CustomerDAO {
 	BasicDataSource ds;
 	
-	CustomerDAO() {
+	public CustomerDAO() {
 		ds = new BasicDataSource();
-		ds.setDriverClassName("oracle.jdbc.driver.OracleDriver"); //setDriverClassName : 드라이버에 대한 이름을 알려주라는 기능 
+		ds.setDriverClassName("oracle.jdbc.driver.OracleDriver");  
 		ds.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
 		ds.setUsername("scott");
 		ds.setPassword("tiger");
@@ -32,11 +32,11 @@ public class CustomerDAO {
 		
 		
 		try {
-			con = ds.getConnection(); //jdbc 연결
+			con = ds.getConnection();
 			String sql = "select * from customer order by no";
-			pstmt = con.prepareStatement(sql); //명령문 
+			pstmt = con.prepareStatement(sql); 
 			rs = pstmt.executeQuery();
-			//db 에서 데이터를 읽어왔는데 이걸 담을 힙을 만들어야지 
+		
 			while(rs.next()) {
 				CustomerDTO dto = new CustomerDTO();
 				dto.setNo(rs.getInt("no"));
@@ -75,13 +75,9 @@ public class CustomerDAO {
 				pstmt.setString(2, dto.getName());
 				pstmt.setString(3, dto.getTel());
 				pstmt.setInt(4, dto.getStamp());
-				int result = pstmt.executeUpdate();
+				pstmt.executeUpdate();
 				
-				if(result == 1) {
-					System.out.println("데이터 저장 성공");
-				}else {
-					System.out.println("데이터 저장 실패");
-				}
+			
 			} catch (SQLException e) {
 				
 				e.printStackTrace();
@@ -100,7 +96,7 @@ public class CustomerDAO {
 	public void update(CustomerDTO dto) {
 		Connection con = null; 
 		PreparedStatement pstmt = null;
-		String sql = "update customer set name = ?, tel =?, stamp = ? where no = ?";
+		String sql = "update customer set name = ?, tel =?, stamp =  stamp+?  where no = ?";
 		
 		try {
 			con = ds.getConnection();
@@ -109,14 +105,7 @@ public class CustomerDAO {
 			pstmt.setString(2, dto.getTel());
 			pstmt.setInt(3, dto.getStamp());
 			pstmt.setInt(4, dto.getNo());
-			
-			int result = pstmt.executeUpdate();
-			
-			if(result == 1) {
-				System.out.println("데이터 수정 성공");
-			}else {
-				System.out.println("데이터 수정 실패");
-			}
+			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
 		
@@ -129,7 +118,36 @@ public class CustomerDAO {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public void update_ST(CustomerDTO dto) {
+		Connection con = null; 
+		PreparedStatement pstmt = null;
+		String sql = "update customer set stamp = ? where no = ?";
+		
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, dto.getStamp());
+			pstmt.setInt(2, dto.getNo());
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+		
+			e.printStackTrace();
+		}finally {
+			try {
+				if(pstmt != null) { pstmt.close(); }
+				if(con != null)  { con.close(); }
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
+	}
+	
+	
 
 	public void delete(int no) {
 
@@ -142,13 +160,9 @@ public class CustomerDAO {
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, no);
-			int result = pstmt.executeUpdate();
+			pstmt.executeUpdate();
 			
-			if(result == 1) {
-				System.out.println("데이터 삭제 성공");
-			}else {
-				System.out.println("데이터 삭제 실패");
-			}
+		
 			
 		} catch (SQLException e) {
 		

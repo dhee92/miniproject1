@@ -1,16 +1,16 @@
 package ManagerP;
 
-import StockManage.StockTest;
+import StockManage.StockMain;
 
 class Management {
 	//관리자 모드
-	StockTest stock;
+	StockMain stock;
 	Management(){
-		stock = new StockTest();		
+		stock = new StockMain();		
 	}
 		
-	public void updateStock() {
-		stock.update();
+	public void updateStock(int num1,int num2,int num3,int num4) {
+		stock.update(num1, num2, num3, num4);
 	}
 	
 	public void ShowStock() {
