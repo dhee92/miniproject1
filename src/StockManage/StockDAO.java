@@ -70,14 +70,8 @@ class StockDAO {
 			pstmt.setInt(3,  dto.getChocoQ());
 			pstmt.setInt(4,  dto.getVanillaQ());
 			
-			int result = pstmt.executeUpdate();
+			pstmt.executeUpdate();
 			
-			if(result == 1) {
-				System.out.println("재고 수정 성공");
-			}
-			else {
-				System.out.println("재고 수정 실패");
-			}		
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

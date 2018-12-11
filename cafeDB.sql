@@ -11,12 +11,13 @@ select * from stock;
 drop table employee;
 create table employee(
 	no				number(4),
-	Msalary		number(5),
 	name			varchar2(20),
-	workhour 	number(2),
-	tel				varchar2(20)
+	tel				varchar2(20),
+	Msalary		number(5),
+	workhour 	number(2)
 	);
-		
+select * from employee;
+	
 --회원	
 drop table customer;
 create table customer( --이름, 회원번호, 폰번호, 스탬프
@@ -26,7 +27,7 @@ create table customer( --이름, 회원번호, 폰번호, 스탬프
 	stamp			number(4)
 	);
 select * from customer;
-insert into customer values(1, 'Dahee Lee', '01073706727', 1);
+
 
 --일별 영업이익
 drop table benefit;
@@ -35,5 +36,4 @@ create table benefit(
 	moneyofday		number(9)
 	);
 select * from benefit;
-insert into benefit values( 'AAAA', 12);
-update benefit set moneyofday = moneyofday+10 where YYYMMDD='AAAA';
+
