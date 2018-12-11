@@ -146,8 +146,7 @@ public class CustomerDAO {
 			}
 		}
 	}
-	
-	
+		
 
 	public void delete(int no) {
 

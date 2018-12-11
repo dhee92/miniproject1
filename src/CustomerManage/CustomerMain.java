@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CustomerMain {
+	
 	CustomerDAO dao;
 	
 	public CustomerMain(){
@@ -70,39 +71,23 @@ public class CustomerMain {
 		dao.update(dto);
 		
 	}
-	
-	public void update_ST(String No, String Name, String Tel, String Stamp) {
+	//스텝프 추가
+	public void update_ST(int No, String Stamp) {
 		
 		CustomerDTO dto = new CustomerDTO();
-		
-		String no = No;
-		int ChangeNo = Integer.parseInt(no);
-		
-		String name = Name;
-		
-		String tel = Tel;
-		
 		String stamp =Stamp;
 		int ChangeStamp = Integer.parseInt(stamp);
 	
-		dto.setNo(ChangeNo);
-		dto.setName(name);
-		dto.setTel(tel);
+		dto.setNo(No);
+		dto.setName(null);
+		dto.setTel(null);
 		dto.setStamp(ChangeStamp);
 		
 		dao.update_ST(dto);
 		
-	}	
-	
-	
-	private static void delete(CustomerDAO dao, String No) {
-	
-		CustomerDTO dto = new CustomerDTO();
-	
-		String no = No;
-		int chgNo = Integer.parseInt(no);
-		
-		dao.delete(chgNo);
+	}		
+	private void delete(int No) {
+		dao.delete(No);
 		
 	}
 }
