@@ -59,7 +59,7 @@ class StockDAO {
 		Connection con = null;
 		PreparedStatement pstmt=null;
 		
-		String sql = "update stock set Bean = Bean + ?, Milk=Milk + ?, Choco=Choco + ?, Vanilla= Vanilla + ?";
+		String sql = "update stock set Bean=Bean+?, Milk=Milk+?, Choco=Choco+?, Vanilla=Vanilla+?";
 		
 		try {
 			con = ds.getConnection();
