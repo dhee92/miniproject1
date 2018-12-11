@@ -2,9 +2,9 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/workspaces/jdbc/jdbc/lib/commons-dbcp2-2.1.jar"/>
-	<classpathentry kind="lib" path="C:/workspaces/jdbc/jdbc/lib/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/workspaces/jdbc/jdbc/lib/commons-pool2-2.3.jar"/>
+	<classpathentry kind="lib" path="/Workspaces/jdbc/miniproject1/miniproject1/lib/commons-dbcp2-2.1.jar"/>
+	<classpathentry kind="lib" path="/Workspaces/jdbc/miniproject1/miniproject1/lib/commons-pool2-2.3.jar"/>
+	<classpathentry kind="lib" path="/Workspaces/jdbc/miniproject1/miniproject1/lib/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="/Workspaces/jdbc/miniproject1/customer/lib/commons-dbcp2-2.1.jar"/>
 	<classpathentry kind="lib" path="/Workspaces/jdbc/miniproject1/customer/lib/commons-pool2-2.3.jar"/>
 	<classpathentry kind="lib" path="/Workspaces/jdbc/miniproject1/customer/lib/commons-logging-1.2.jar"/>
