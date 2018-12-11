@@ -15,6 +15,8 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -57,6 +59,100 @@ public class swing {
 	private JFrame frame;
 	private final Action action = new SwingAction();
 
+	
+	
+	   public String textPrint(List<String> e) {
+		      String orderedCoffee=null;
+		      int AHcnt=0, LHcnt=0, MHcnt=0, VHcnt=0, AIcnt=0, LIcnt=0, MIcnt=0, VIcnt=0;
+		      List<String> fl = new ArrayList();
+		      for(String coffee : e ) {
+		         if( coffee.equals("AH")) {
+		            ++AHcnt; 
+		            if(fl.contains("AH")) {
+		               continue;
+		            }
+		            else {
+		               fl.add("AH");
+		            }
+		         }else if(coffee.equals("LH")){
+		            ++LHcnt;
+		            if(fl.contains("LH")) {
+		               continue;
+		            }
+		            else {
+		               fl.add("LH");
+		            }
+		         }else if(coffee.equals("MH")){
+		            ++MHcnt;
+		            if(fl.contains("MH")) {
+		               continue;
+		            }
+		            else {
+		               fl.add("MH");
+		            }
+		         }else if(coffee.equals("VH")){
+		            ++VHcnt;
+		            if(fl.contains("VH")) {
+		               continue;
+		            }
+		            else {
+		               fl.add("VH");
+		            }
+		         }else if(coffee.equals("AI")){
+		            ++AIcnt;
+		            if(fl.contains("AI")) {
+		               continue;
+		            }
+		            else {
+		               fl.add("AI");
+		            }
+		         }else if(coffee.equals("LI")){
+		            ++LIcnt;
+		            if(fl.contains("LI")) {
+		               continue;
+		            }
+		            else {
+		               fl.add("LI");
+		            }
+		         }else if(coffee.equals("MI")){
+		            ++MIcnt;
+		            if(fl.contains("MI")) {
+		               continue;
+		            }
+		            else {
+		               fl.add("MI");
+		            }
+		         }else if(coffee.equals("VI")){
+		            ++VIcnt;
+		            if(fl.contains("VI")) {
+		               continue;
+		            }
+		            else {
+		               fl.add("VI");
+		            }
+		         }         
+		      }
+		      for(String coffee : fl ) {
+		         if( coffee.equals("AH")) {
+		            orderedCoffee.concat("Americano Hot \t "+Integer.toString(AHcnt)+"\n");
+		         }else if(coffee.equals("LH")){
+		            orderedCoffee.concat("Latte Hot \t "+Integer.toString(LHcnt)+"\n");   
+		         }else if(coffee.equals("MH")){
+		            orderedCoffee.concat("Mocha latte Hot \t "+Integer.toString(MHcnt)+"\n");
+		         }else if(coffee.equals("VH")){
+		            orderedCoffee.concat("Vanilla latte Hot \t "+Integer.toString(VHcnt)+"\n");
+		         }else if(coffee.equals("AI")){
+		            orderedCoffee.concat("Aaaaaaaa");
+		         }else if(coffee.equals("LI")){
+		            orderedCoffee.concat("Latte Ice \t "+Integer.toString(LIcnt)+"\n");
+		         }else if(coffee.equals("MI")){
+		            orderedCoffee.concat("Mocha latte Ice \t "+Integer.toString(MIcnt)+"\n");
+		         }else if(coffee.equals("VI")){
+		            orderedCoffee.concat("Vanilla latte Ice \t "+Integer.toString(VIcnt)+"\n");
+		         }
+		      }      
+		      return orderedCoffee;
+		   }
 	/**
 	 * Launch the application.
 	 */
@@ -241,6 +337,8 @@ public class swing {
 //		StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
 //		((StyledDocument) document).setParagraphAttributes(0, document.getLength(), center, false);
 		sale.add(textArea);
+		
+		List<String> ClickedCoffee = new ArrayList();
 				
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(UIManager.getColor("CheckBox.background"));
@@ -368,7 +466,10 @@ public class swing {
 				textArea.setVisible(false);
 				textArea.setText("");
 				textArea.setText(e.getActionCommand());
-				string = e.getActionCommand();
+				ClickedCoffee.add("AI");
+	            textArea.setText(textPrint(ClickedCoffee));
+	            System.out.println(textPrint(ClickedCoffee));
+				//string = e.getActionCommand();
 				//System.out.println(e.getActionCommand());
 				//textArea.setText(menu1Label2.getText());
 				//textArea.append(e.getActionCommand()+"\n");
