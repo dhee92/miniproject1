@@ -44,6 +44,7 @@ public class StockTest {
 		int choco = dto.getChocoQ();
 		int vanilla = dto.getVanillaQ();
 		
+		//화면 출력 수정 필수
 		System.out.printf("%d \t %d \t %d \t\t%d",bean, milk, choco, vanilla);
 	
 	}/*

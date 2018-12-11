@@ -2,6 +2,7 @@ package ManagerP;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class Benefit {
 	BenefitDAO dao;
@@ -27,14 +28,35 @@ public class Benefit {
 		dao.updateBenefit(dto);		
 	}
 	
+	// 	
+	public void ShowBenefit() {
+		List<BenefitDTO> list = null;
+		list = dao.ShowBenefit();
+		
+		System.out.println("날짜\t\t 이익");
+		System.out.printf("---------------------------------------\n");
+		
+		for(BenefitDTO e : list) {
+			String date = e.getYyyymmdd();
+			int Benefit = e.getBenefit();
+			System.out.printf("%s \t %d ", date, Benefit);
+		}
+			
+	}
+	public void Selected_ShowBenefit(String Date) {
+		//Date는 사용자로부터 날짜를 입력 받아올것 2018/12/30 과 같은 방식
+		BenefitDTO dto;
+		dto = dao.ShowBenefit_Selectday(Date);
+		
+		System.out.println("날짜\t\t 이익");
+		System.out.printf("---------------------------------------\n");
+		
+		int Benefit = dto.getBenefit();
+		
+		
+		System.out.printf("%s\t %d", Date, Benefit);
 	
-	
-	
-	
-	
-	
-	
-	
+	}
 	
 	
 	

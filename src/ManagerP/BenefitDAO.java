@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 
@@ -24,9 +26,9 @@ class BenefitDAO {
 		ds.setInitialSize(5);	
 	}
 	
-	public BenefitDTO ShowBenefit() {
+	public List<BenefitDTO> ShowBenefit() {
 		//전체 이익 출력
-		BenefitDTO dto = new BenefitDTO();
+		List<BenefitDTO> list = new ArrayList<BenefitDTO>();
 		
 		Connection con = null;
 		PreparedStatement pstmt=null;
@@ -38,8 +40,10 @@ class BenefitDAO {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();                
 			while(rs.next()) {
+				BenefitDTO dto = new BenefitDTO();
 				dto.setYyyymmdd("YYYYMMDD");       // 컴퓨터로부터 날짜 입력 받기
-				dto.setBenefit(rs.getInt("moneyofday"));						
+				dto.setBenefit(rs.getInt("moneyofday"));	
+				list.add(dto);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -52,9 +56,9 @@ class BenefitDAO {
 				e.printStackTrace();
 			}			
 		}		
-		return dto;
+		return list;
 	}
-	public BenefitDTO ShowBenefit_Selectday() {
+	public BenefitDTO ShowBenefit_Selectday(String Date) {
 		//입력받은 날짜별 출력
 		BenefitDTO dto = new BenefitDTO();
 		
@@ -68,7 +72,7 @@ class BenefitDAO {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();                
 			while(rs.next()) {
-				dto.setYyyymmdd("YYYYMMDD");      //이 날짜는 날짜 입력 사람으로부터 받아 올것
+				dto.setYyyymmdd(Date);      //이 날짜는 날짜 입력 사람으로부터 받아 올것
 				dto.setBenefit(rs.getInt("moneyofday"));						
 			}
 		} catch (Exception e) {
