@@ -58,6 +58,15 @@ public class swing {
 
 	private JFrame frame;
 	private final Action action = new SwingAction();
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	private JTextField textField_5;
+	private JTextField textField_6;
+	private JTextField textField_7;
+	private JTextField textField_8;
 
 	
 	
@@ -225,13 +234,18 @@ public class swing {
 		frame.getContentPane().add(panel_1);
 		panel_1.setVisible(true);
 		
-
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(UIManager.getColor("CheckBox.background"));
 		panel_2.setBounds(0, 0, 1200, 630);
 		frame.getContentPane().add(panel_2);
 		panel_2.setLayout(null);
 		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(UIManager.getColor("CheckBox.background"));
+		panel_3.setBounds(0, 0, 1200, 630);
+		frame.getContentPane().add(panel_3);
+		panel_3.setLayout(null);
+				
 		JPanel menu = new JPanel();
 		menu.setBounds(0, 30, 600, 500);
 		menu.setBackground(UIManager.getColor("CheckBox.background"));
@@ -340,12 +354,7 @@ public class swing {
 		
 		List<String> ClickedCoffee = new ArrayList();
 				
-		JPanel panel_3 = new JPanel();
-		panel_3.setBackground(UIManager.getColor("CheckBox.background"));
-		panel_3.setBounds(0, 0, 1200, 630);
-		frame.getContentPane().add(panel_3);
-		panel_3.setLayout(null);
-		
+
 		
 		JButton backButton1 = new JButton("Back");
 		backButton1.setBounds(0, 0, 117, 29);
@@ -386,6 +395,11 @@ public class swing {
 			
 		});
 		
+		
+		JButton empButton = new JButton("직원");
+		empButton.setBounds(135, 21, 97, 23);
+		bottom.add(empButton);
+		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBackground(UIManager.getColor("CheckBox.background"));
 		panel_4.setBounds(0, 0, 1200, 630);
@@ -395,6 +409,99 @@ public class swing {
 		JButton backButton2 = new JButton("Back");
 		backButton2.setBounds(0, 0, 117, 29);
 		panel_4.add(backButton2);
+		
+		JLabel lblNewLabel = new JLabel("      직원 번호");
+		lblNewLabel.setBounds(20, 92, 94, 41);
+		panel_4.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("        시급");
+		lblNewLabel_1.setBounds(31, 158, 96, 29);
+		panel_4.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("        이름");
+		lblNewLabel_2.setBounds(33, 217, 94, 29);
+		panel_4.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("        번호");
+		lblNewLabel_3.setBounds(38, 291, 97, 39);
+		panel_4.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("     근무 시간");
+		lblNewLabel_4.setBounds(41, 368, 94, 40);
+		panel_4.add(lblNewLabel_4);
+		
+		textField = new JTextField();
+		textField.setBounds(180, 103, 116, 21);
+		panel_4.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(180, 162, 116, 21);
+		panel_4.add(textField_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(180, 226, 116, 21);
+		panel_4.add(textField_2);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(180, 303, 116, 21);
+		panel_4.add(textField_3);
+		
+		textField_4 = new JTextField();
+		textField_4.setColumns(10);
+		textField_4.setBounds(180, 380, 116, 21);
+		panel_4.add(textField_4);
+		
+		JLabel label = new JLabel("      직원 추가");
+		label.setBounds(92, 39, 150, 41);
+		panel_4.add(label);
+		
+		JLabel label_1 = new JLabel("      직원 시급 관리");
+		label_1.setBounds(686, 55, 143, 41);
+		panel_4.add(label_1);
+		
+		JLabel label_2 = new JLabel("      직원 번호");
+		label_2.setBounds(615, 114, 94, 41);
+		panel_4.add(label_2);
+		
+		textField_5 = new JTextField();
+		textField_5.setColumns(10);
+		textField_5.setBounds(734, 124, 116, 21);
+		panel_4.add(textField_5);
+		
+		JLabel label_3 = new JLabel("        시급");
+		label_3.setBounds(626, 180, 96, 29);
+		panel_4.add(label_3);
+		
+		textField_6 = new JTextField();
+		textField_6.setColumns(10);
+		textField_6.setBounds(734, 184, 116, 21);
+		panel_4.add(textField_6);
+		
+		JLabel label_4 = new JLabel("근무 시간 추가");
+		label_4.setBounds(991, 52, 94, 41);
+		panel_4.add(label_4);
+		
+		JLabel label_5 = new JLabel("     근무 시간");
+		label_5.setBounds(903, 158, 94, 40);
+		panel_4.add(label_5);
+		
+		textField_7 = new JTextField();
+		textField_7.setColumns(10);
+		textField_7.setBounds(1031, 162, 116, 21);
+		panel_4.add(textField_7);
+		
+		JLabel label_6 = new JLabel("      직원 번호");
+		label_6.setBounds(903, 103, 94, 41);
+		panel_4.add(label_6);
+		
+		textField_8 = new JTextField();
+		textField_8.setColumns(10);
+		textField_8.setBounds(1031, 112, 116, 21);
+		panel_4.add(textField_8);
 		
 		backButton2.addActionListener(new ActionListener() {
 			@Override
@@ -407,11 +514,7 @@ public class swing {
 			}
 			
 		});
-		
-		
-		JButton empButton = new JButton("직원");
-		empButton.setBounds(135, 21, 97, 23);
-		bottom.add(empButton);
+		backButton2.setVisible(false);
 		
 		empButton.addActionListener(new ActionListener() {
 
@@ -434,7 +537,6 @@ public class swing {
 		empButton.setVisible(false);
 		adminButton.setVisible(false);
 		backButton1.setVisible(false);
-		backButton2.setVisible(false);
 		
 		logBtn.addActionListener(new ActionListener() {
 

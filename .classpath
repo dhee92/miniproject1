@@ -3,8 +3,8 @@
 	<classpathentry excluding="src/" kind="src" path=""/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/Users/dahee/git/miniproject1/lib/commons-dbcp2-2.1.jar"/>
-	<classpathentry kind="lib" path="/Users/dahee/git/miniproject1/lib/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="/Users/dahee/git/miniproject1/lib/commons-pool2-2.3.jar"/>
+	<classpathentry kind="lib" path="C:/workspaces/jdbc/jdbc/lib/commons-pool2-2.3.jar"/>
+	<classpathentry kind="lib" path="C:/workspaces/jdbc/jdbc/lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/workspaces/jdbc/jdbc/lib/commons-dbcp2-2.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
