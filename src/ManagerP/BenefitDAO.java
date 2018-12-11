@@ -58,6 +58,8 @@ class BenefitDAO {
 		}		
 		return list;
 	}
+	
+	
 	public BenefitDTO ShowBenefit_Selectday(String Date) {
 		//입력받은 날짜별 출력
 		BenefitDTO dto = new BenefitDTO();

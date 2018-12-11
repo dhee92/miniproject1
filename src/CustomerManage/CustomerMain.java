@@ -31,8 +31,7 @@ public class CustomerMain {
 	public void insert(String No, String Name, String Tel) {
 		
 		CustomerDTO dto = new CustomerDTO();
-		
-		
+				
 		String no = No;
 		int ChangeNo = Integer.parseInt(no);
 		String name = Name;
@@ -72,13 +71,14 @@ public class CustomerMain {
 		
 	}
 	//스텝프 추가
-	public void update_ST(int No, String Stamp) {
+	public void update_ST(String No, String Stamp) {
 		
 		CustomerDTO dto = new CustomerDTO();
 		String stamp =Stamp;
+		int ChNo = Integer.parseInt(No);
 		int ChangeStamp = Integer.parseInt(stamp);
 	
-		dto.setNo(No);
+		dto.setNo(ChNo);
 		dto.setName(null);
 		dto.setTel(null);
 		dto.setStamp(ChangeStamp);
@@ -86,8 +86,9 @@ public class CustomerMain {
 		dao.update_ST(dto);
 		
 	}		
-	private void delete(int No) {
-		dao.delete(No);
+	private void delete(String No) {
+		int ChNo = Integer.parseInt(No);
+		dao.delete(ChNo);
 		
 	}
 }

@@ -29,33 +29,24 @@ public class Benefit {
 	}
 	
 	// 	
-	public void ShowBenefit() {
+	public List<BenefitDTO> ShowBenefit() {
 		List<BenefitDTO> list = null;
 		list = dao.ShowBenefit();
-		
-		System.out.println("날짜\t\t 이익");
-		System.out.printf("---------------------------------------\n");
-		
+			
+		/*
 		for(BenefitDTO e : list) {
 			String date = e.getYyyymmdd();
 			int Benefit = e.getBenefit();
-			System.out.printf("%s \t %d ", date, Benefit);
-		}
-			
+		}*/
+		return list;
 	}
-	public void Selected_ShowBenefit(String Date) {
+	public BenefitDTO Selected_ShowBenefit(String Date) {
 		//Date는 사용자로부터 날짜를 입력 받아올것 2018/12/30 과 같은 방식
-		BenefitDTO dto;
-		dto = dao.ShowBenefit_Selectday(Date);
+		BenefitDTO dto=null;
+		dto = dao.ShowBenefit_Selectday(Date);	
+
 		
-		System.out.println("날짜\t\t 이익");
-		System.out.printf("---------------------------------------\n");
-		
-		int Benefit = dto.getBenefit();
-		
-		
-		System.out.printf("%s\t %d", Date, Benefit);
-	
+		return dto;
 	}
 	
 	
