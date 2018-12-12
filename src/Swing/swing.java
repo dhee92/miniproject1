@@ -375,35 +375,35 @@ public class swing {
 		panel_2.add(menu);
 		menu.setLayout(null);
 		// 커피 종류별 버튼
-		JButton menu1 = new JButton("Iced Americano \n 3000");
+		JButton menu1 = new JButton("Iced Americano 3000");
 		menu1.setBounds(0, 0, 150, 250);
 		menu.add(menu1);
 
-		JButton menu2 = new JButton("Iced Latte \n 3000");
+		JButton menu2 = new JButton("Iced Latte 3000");
 		menu2.setBounds(150, 0, 150, 250);
 		menu.add(menu2);
 
-		JButton menu3 = new JButton("Iced Vanilla Latte \n 3000");
+		JButton menu3 = new JButton("Iced Vanilla Latte 3000");
 		menu3.setBounds(300, 0, 150, 250);
 		menu.add(menu3);
 
-		JButton menu4 = new JButton("Iced Mocha \n 3000");
+		JButton menu4 = new JButton("Iced Mocha 3000");
 		menu4.setBounds(450, 0, 150, 250);
 		menu.add(menu4);
 
-		JButton menu5 = new JButton("Hot Americano \n 3000");
+		JButton menu5 = new JButton("Hot Americano 3000");
 		menu5.setBounds(0, 250, 150, 250);
 		menu.add(menu5);
 
-		JButton menu6 = new JButton("Hot Latte \n 3000");
+		JButton menu6 = new JButton("Hot Latte 3000");
 		menu6.setBounds(150, 250, 150, 250);
 		menu.add(menu6);
 
-		JButton menu7 = new JButton("Hot Vanilla Latte \n 3000");
+		JButton menu7 = new JButton("Hot Vanilla Latte 3000");
 		menu7.setBounds(300, 250, 150, 250);
 		menu.add(menu7);
 
-		JButton menu8 = new JButton("Hot Mocha \n 3000");
+		JButton menu8 = new JButton("Hot Mocha 3000");
 		menu8.setBounds(450, 250, 150, 250);
 		menu.add(menu8);
 
