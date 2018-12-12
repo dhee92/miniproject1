@@ -69,16 +69,19 @@ class BenefitDAO {
 		ResultSet rs=null;
 		
 		
-		List< BenefitDTO	 > list = new ArrayList<BenefitDTO>();	
+		List< BenefitDTO > list = new ArrayList<BenefitDTO>();	
 		
 		try {
-			BenefitDTO dto = new BenefitDTO();
+			// BenefitDTO dto = new BenefitDTO();
 			con = ds.getConnection();
 			String sql =  "select * from benefit"; 
 			pstmt = con.prepareStatement(sql);
 			rs=pstmt.executeQuery();                
 			while(rs.next()) {
-				dto.setYyyymmdd(rs.getString("yyyymmdd"));      //이 날짜는 날짜 입력 사람으로부터 받아 올것
+				BenefitDTO dto = new BenefitDTO();
+				System.out.println(rs.getString("yyyymmdd"));
+				dto.setYyyymmdd(rs.getString("yyyymmdd"));  
+				System.out.println(rs.getInt("moneyofday"));//이 날짜는 날짜 입력 사람으로부터 받아 올것
 				dto.setBenefit(rs.getInt("moneyofday"));
 				list.add(dto);
 			}
