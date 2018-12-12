@@ -826,6 +826,7 @@ public class swing {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				textArea_emplist.setText("");
 				// 여기에 추가해주세여!!!
 				textArea_emplist.append("   직원 번호                이름                전화번호           시급     근무시간\n");
 				for(empDTO dto : eM.select()){
@@ -841,7 +842,7 @@ public class swing {
 					textArea_emplist.append(Chsal +"            ");
 					int wh = dto.getWorkhour();
 					String Chwh = Integer.toString(wh);
-					textArea_emplist.append(Chwh);
+					textArea_emplist.append(Chwh+"\n");
 					
 				}
 
