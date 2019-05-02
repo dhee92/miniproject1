@@ -1,0 +1,6 @@
+Cannot load JDBC driver class 'oracle.jdbc.driver.OracleDriver' 에러가 발생한경우
+이클립스에서 oracle database를 추가할때 처럼 ojdbc6.jar을 추가해줘야 한다.
+방법은 해당 프로젝트를 오른쪽 클릭하여 build path를 클릭한후 
+External JARs를 눌러 추가해주면된다.
+ojdbc6.jar은 다음의 폴더에 있다. 
+C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib
